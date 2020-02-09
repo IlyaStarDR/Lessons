@@ -1,5 +1,7 @@
 package com.epam.lesson8;
 
+import static java.lang.Double.doubleToLongBits;
+
 public class Device {
     private String serialNumber;
     private String manufacturer;
@@ -65,4 +67,16 @@ public class Device {
 
         return this.manufacturer.equals(other.manufacturer);
     }
+
+    @Override
+
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + serialNumber.hashCode();
+        result = 31 * result + manufacturer.hashCode();
+        long priceLong = doubleToLongBits(price);
+        result = 31 * result + (int) (priceLong ^ (priceLong >>> 32));
+        return result;
+    }
+
 }

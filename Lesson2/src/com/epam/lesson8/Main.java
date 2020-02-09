@@ -2,10 +2,7 @@ package com.epam.lesson8;
 
 public class Main {
     public static void main(String[] args) {
-        Device device = new Device();
-//        System.out.println(device.toString());
-
-        device = new Device("OO34PK", "Apple", 3500);
+        Device device = new Device("OO34PK", "Apple", 3500);
 //        System.out.println(device.toString());
 
         Monitor monitor = new Monitor("HDSD2000", "DELL", 2500, 1280, 1020);
@@ -29,5 +26,9 @@ public class Main {
         System.out.println("Monitor equals -> " + devices[0].equals(devices[3]));
         System.out.println("Device equals -> " + devices[1].equals(devices[4]));
         System.out.println("Adapter equals -> " + devices[2].equals(devices[4]));
+        System.out.println("Hashcode: ");
+        for (Device devi : devices) {
+            System.out.println(devi.hashCode());
+        }
     }
 }
